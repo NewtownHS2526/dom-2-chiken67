@@ -20,150 +20,60 @@ NOTE: In CSS you use #id-name, but in getElementById you use just 'id-name' (no 
 // ============================================
 // EXERCISE 1: DEMO - Shows how getElementById works
 // ============================================
-const runDemo1 = document.getElementById('run-demo-1');
-const demoBtn1 = document.getElementById('demo-btn-1');
-const demoText1 = document.getElementById('demo-text-1');
-const demoBox1 = document.getElementById('demo-box-1');
-const demoResult1 = document.getElementById('demo-result-1');
+// ============================================
+// EXERCISE 4: Student Practice - style with loop
+// ============================================
+// Select all elements with class 'color-box' and change their styles
+const practiceBtn6 = document.getElementById('practice-btn-6');
 
-if (runDemo1) {
-  runDemo1.addEventListener('click', function() {
-    console.log("=== DEMO 1: getElementById ===");
+if (practiceBtn6) {
+  practiceBtn6.addEventListener('click', function() {
+    // 1. Use getElementsByClassName to select all 'color-box' elements
+    const colorBoxes = document.getElementsByClassName('color-box');
     
-    // Select elements by ID
-    console.log("Selecting button by ID:", demoBtn1);
-    console.log("Selecting text by ID:", demoText1);
-    console.log("Selecting box by ID:", demoBox1);
-    
-    // Change text using textContent
-    if (demoText1) {
-      demoText1.textContent = "Text changed with textContent!";
-      demoText1.style.color = "#10b981";
-      demoText1.style.fontSize = "20px";
+    // 2. Loop through the collection
+    for (let i = 0; i < colorBoxes.length; i++) {
+      // 3. Change each element's backgroundColor to "lightblue"
+      colorBoxes[i].style.backgroundColor = "lightblue";
+      // 4. Change each element's color to "darkblue"
+      colorBoxes[i].style.color = "darkblue";
+      colorBoxes[i].style.borderColor = "#3b82f6";
+      colorBoxes[i].textContent = `Box ${i + 1} Styled!`;
     }
     
-    // Change HTML using innerHTML
-    if (demoBox1) {
-      demoBox1.innerHTML = "<strong>HTML</strong> changed!";
-      demoBox1.style.backgroundColor = "#fef3c7";
-    }
-    
-    // Change button style
-    if (demoBtn1) {
-      demoBtn1.textContent = "Clicked!";
-      demoBtn1.style.backgroundColor = "#10b981";
-    }
-    
-    // Show result
-    if (demoResult1) {
-      demoResult1.innerHTML = `
-        <strong>Demo Results:</strong><br>
-        ✓ Selected button with getElementById('demo-btn-1')<br>
-        ✓ Changed text with .textContent<br>
-        ✓ Changed HTML with .innerHTML<br>
-        ✓ Changed styles with .style property
-      `;
-    }
-    
-    // Reset after 3 seconds
-    setTimeout(() => {
-      if (demoText1) {
-        demoText1.textContent = "Original text";
-        demoText1.style.color = "";
-        demoText1.style.fontSize = "";
-      }
-      if (demoBox1) {
-        demoBox1.innerHTML = "Box 1";
-        demoBox1.style.backgroundColor = "";
-      }
-      if (demoBtn1) {
-        demoBtn1.textContent = "Click Me!";
-        demoBtn1.style.backgroundColor = "";
-      }
-      if (demoResult1) {
-        demoResult1.innerHTML = "";
-      }
-    }, 3000);
+    console.log("Exercise 4: Changed all colors using a loop");
   });
 }
 
-// ============================================
-// EXERCISE 2: Student Practice - textContent
-// ============================================
-// TODO: Students should complete this exercise
-// Select the element with id 'practice-text-1' and change its textContent
-const practiceBtn1 = document.getElementById('practice-btn-1');
+/* ================================================================================
+SECTION 3: querySelector() - Summary of Exercises
+================================================================================
+*/
 
-if (practiceBtn1) {
-  practiceBtn1.addEventListener('click', function() {
-    // STUDENT CODE HERE:
-    // 1. Use getElementById to select 'practice-text-1'
-    // 2. Change its textContent to "I changed this text!"
-    
-    // Example solution (students should write this):
-    const practiceText1 = document.getElementById('practice-text-1');
-    if (practiceText1) {
-      practiceText1.textContent = "I changed this text!";
-      practiceText1.style.color = "#10b981";
-      practiceText1.style.fontWeight = "bold";
+// Exercise 2: Selecting by ID (#)
+const practiceBtn7 = document.getElementById('practice-btn-7');
+if (practiceBtn7) {
+  practiceBtn7.addEventListener('click', function() {
+    const targetElement = document.querySelector('#target-id');
+    if (targetElement) {
+      targetElement.textContent = "Selected with querySelector!";
+  
+      targetElement.style.color = "#1e40af";
     }
-    
-    console.log("Exercise 2: Changed text with textContent");
+  });
+
+
+// Exercise 3: Selecting by Class (.)
+const practiceBtn8 = document.getElementById('practice-btn-8');
+if (practiceBtn8) {
+  practiceBtn8.addEventListener('click', function() {
+    // querySelector only grabs the FIRST match
+    const firstTarget = document.querySelector('.target-class');
+    if (firstTarget) {          
+      firstTarget.innerHTML = "<strong>First item selected!</strong>";
+    }
   });
 }
-
-// ============================================
-// EXERCISE 3: Student Practice - innerHTML
-// ============================================
-// TODO: Students should complete this exercise
-// Select the element with id 'practice-html-1' and change its innerHTML
-const practiceBtn2 = document.getElementById('practice-btn-2');
-
-if (practiceBtn2) {
-  practiceBtn2.addEventListener('click', function() {
-    // STUDENT CODE HERE:
-    // 1. Use getElementById to select 'practice-html-1'
-    // 2. Change its innerHTML to "<strong>Bold HTML</strong> and <em>italic text</em>"
-    
-    // Example solution (students should write this):
-    const practiceHtml1 = document.getElementById('practice-html-1');
-    if (practiceHtml1) {
-      practiceHtml1.innerHTML = "<strong>Bold HTML</strong> and <em>italic text</em>";
-      practiceHtml1.style.backgroundColor = "#fef3c7";
-    }
-    
-    console.log("Exercise 3: Changed HTML with innerHTML");
-  });
-}
-
-// ============================================
-// EXERCISE 4: Student Practice - style
-// ============================================
-// TODO: Students should complete this exercise
-// Select the element with id 'practice-style-1' and change its style
-const practiceBtn3 = document.getElementById('practice-btn-3');
-
-if (practiceBtn3) {
-  practiceBtn3.addEventListener('click', function() {
-    // STUDENT CODE HERE:
-    // 1. Use getElementById to select 'practice-style-1'
-    // 2. Change its color to "red"
-    // 3. Change its fontSize to "24px"
-    // 4. Change its backgroundColor to "lightblue"
-    
-    // Example solution (students should write this):
-    const practiceStyle1 = document.getElementById('practice-style-1');
-    if (practiceStyle1) {
-      practiceStyle1.style.color = "red";
-      practiceStyle1.style.fontSize = "24px";
-      practiceStyle1.style.backgroundColor = "lightblue";
-      practiceStyle1.style.padding = "20px";
-    }
-    
-    console.log("Exercise 4: Changed styles");
-  });
-}
-
 /* 
 ================================================================================
 SECTION 2: getElementsByClassName() - Exercises
